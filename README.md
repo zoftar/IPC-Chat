@@ -1,58 +1,60 @@
 # IPC-Chat
 
 
-##Kompilacja
-Aby skompilowaæ potrzebne pliki, nalezy uruchomic skrypt compile.sh.
+## Kompilacja
+Aby skompilowaÄ‡ potrzebne pliki, nalezy uruchomic skrypt compile.sh.
 
-##Uruchamianie
-Poniewa¿ serwer wymusza stworzenie nowej, niejstniej¹cej kolejki, nale¿y w pierwszej kolejnoœci go uruchmoiæ,
-podaj¹c jako argument nazwê pliku wejœciowego:
-./sserver data.txt
-Aby uruchomiæ klienta, nale¿y wywo³aæ komendê:
+## Uruchamianie
+PoniewaÅ¼ serwer wymusza stworzenie nowej, niejstniejÄ…cej kolejki, naleÅ¼y w pierwszej kolejnoÅ›ci go uruchmoiÄ‡,
+podajÄ…c jako argument nazwÄ™ pliku wejÅ›ciowego:<br/>
+./sserver data.txt<br/>
+Aby uruchomiÄ‡ klienta, naleÅ¼y wywoÅ‚aÄ‡ komendÄ™:<br/>
 ./cclient
 
-##Pliki
-server.c - serwer
-client.c - klient
-data.txt - dane wejœciowe
+## Pliki
 
-###Specyfikacja pliku wejœciowego
+server.c - serwer<br/>
+client.c - klient<br/>
+data.txt - dane wejÅ›ciowe<br/>
 
-W pliku wejœciowym znajduje siê:
-•	9 linijek z nazwami u¿ytkowników - w i-tej (licz¹c od 1) linijce znajduje siê u¿ytkownik o ID równym i
-•	3 razy po 10 linijek z informacjami o grupach:
-	o	1 linijka z nazw¹ grupy
-	o	9 kolejnych linijek z wartoœciami boolowskimi: zawartoœæ i-tej linijki opisuje
-		przynale¿noœæ i-tego klienta do danej grupy (1 - u¿ytkownik nale¿y do grupy, 0 - nie nale¿y)
+### Specyfikacja pliku wejÅ›ciowego
 
-Wszystkie nazwy musz¹ sk³adaæ siê wy³¹cznie z ma³ych i wielkich liter alfabetu ³aciñskiego
+<ul>W pliku wejÅ›ciowym znajduje siÄ™:
+<li>9 linijek z nazwami uÅ¼ytkownikÃ³w - w i-tej (liczÄ…c od 1) linijce znajduje siÄ™ uÅ¼ytkownik o ID rÃ³wnym i</li>
+<li><ul>	3 razy po 10 linijek z informacjami o grupach:
+	<li>	1 linijka z nazwÄ… grupy</li>
+	<li>	9 kolejnych linijek z wartoÅ›ciami boolowskimi: zawartoÅ›Ä‡ i-tej linijki opisuje
+		przynaleÅ¼noÅ›Ä‡ i-tego klienta do danej grupy (1 - uÅ¼ytkownik naleÅ¼y do grupy, 0 - nie naleÅ¼y)</li></ul></li>
+	</ul>
 
-##Specyfikacja projektu
+Wszystkie nazwy muszÄ… skÅ‚adaÄ‡ siÄ™ wyÅ‚Ä…cznie z maÅ‚ych i wielkich liter alfabetu Å‚aciÅ„skiego
 
-Komunikator oparty jest na dwóch kolejkach IPC: przez jedn¹ klienci wysy³aj¹ ¿¹dania i wiadomoœci do serwera,
-a przez drug¹ - serwer przekazuje wiadomoœci i wysy³a komunikaty do klientów.
+## Specyfikacja projektu
 
-Ka¿dy klient ma przypisane ID [1, 9] ustawiane przez serwer w momencie odczytu danych z pliku wejœciowego.
-Podczas logowania (które polega na podaniu loginu) u¿ytkownik wysy³a komunikat "podpisany" w³asnym ID procesu
-i w komunikacie zwrotnym otrzymuje swój numer. Klient nie zna identyfikatorów innych zalogowanych.
+Komunikator oparty jest na dwÃ³ch kolejkach IPC: przez jednÄ… klienci wysyÅ‚ajÄ… Å¼Ä…dania i wiadomoÅ›ci do serwera,
+a przez drugÄ… - serwer przekazuje wiadomoÅ›ci i wysyÅ‚a komunikaty do klientÃ³w.
 
-###Menu
-Dostepne operacje:
-[1]Wyslij wiadomosc do pojedynczego uzytkownika
-[2]Wyslij wiadomosc do grupy
-[3]Odbierz wiadomosci
-[4]Wyswietl liste zalogowanych uzytkownikow
-[5]Wyswietl liste grup
-[6]Zapisz sie do grupy
-[7]Wypisz sie z grupy
-[8]Wyswietl liste uzytkownikow nalezacych do grupy
-[9]Wyloguj i zamknij
+KaÅ¼dy klient ma przypisane ID [1, 9] ustawiane przez serwer w momencie odczytu danych z pliku wejÅ›ciowego.
+Podczas logowania (ktÃ³re polega na podaniu loginu) uÅ¼ytkownik wysyÅ‚a komunikat "podpisany" wÅ‚asnym ID procesu
+i w komunikacie zwrotnym otrzymuje swÃ³j numer. Klient nie zna identyfikatorÃ³w innych zalogowanych.
 
-Po pomyœlnym zalogowaniu i zakoñczeniu ka¿dej innej czynnoœci wyœwietlane jest menu z dostêpnymi operacjami.
-Aby wykonaæ jedn¹ z nich, nale¿y w konsoli podaæ jej numer. W przypadku 6, 7 i 8
+### Menu
+Dostepne operacje:<br/>
+[1]Wyslij wiadomosc do pojedynczego uzytkownika<br/>
+[2]Wyslij wiadomosc do grupy<br/>
+[3]Odbierz wiadomosci<br/>
+[4]Wyswietl liste zalogowanych uzytkownikow<br/>
+[5]Wyswietl liste grup<br/>
+[6]Zapisz sie do grupy<br/>
+[7]Wypisz sie z grupy<br/>
+[8]Wyswietl liste uzytkownikow nalezacych do grupy<br/>
+[9]Wyloguj i zamknij<br/>
+
+Po pomyÅ›lnym zalogowaniu i zakoÅ„czeniu kaÅ¼dej innej czynnoÅ›ci wyÅ›wietlane jest menu z dostÄ™pnymi operacjami.
+Aby wykonaÄ‡ jednÄ… z nich, naleÅ¼y w konsoli podaÄ‡ jej numer. W przypadku 6, 7 i 8
 klient zostanie dodatkowo poproszony o podanie nazwy grupy.
 
-###Rodzaje komunikatów
+### Rodzaje komunikatÃ³w
 
 struct wiadomosc {
 	long id;
@@ -60,15 +62,18 @@ struct wiadomosc {
 	char text[1000];
 };
 
-		Odbierane przez serwer			Odbierane przez klienta
-id		ID nadawcy				ID odbiorcy
-username	Nazwa adresata (u¿ytkownika /grupy)	Nazwa nadawcy
-text		Treœæ wiadomoœci			Treœæ wiadomoœci
+<table>
+	<tr><td></td><td>Odbierane przez server</td><td>Odbierane przez klienta</td></tr>
+<tr><td>id</td><td>ID nadawcy</td><td>ID odbiorcy</td></tr>
+	<tr><td>username</td><td>Nazwa adresata (uÅ¼ytkownika /grupy)</td><td>ONazwa nadawcy</td></tr>
+	<tr><td>text</td><td>TreÅ›Ä‡ wiadomoÅ›ci</td><td>treÅ›Ä‡ wiadomoÅ›ci</td></tr>
+</table>
 
-U¿ywany, kiedy klient chce skontaktowaæ siê z innymi u¿ytkownikami.
-Zanim zapisze treœæ wiadomoœci, musi podaæ nazwê osoby lub grupy,
-z któr¹ zamierza siê skontaktowaæ. Klient otrzymuje od serwera zwrotny
-komunikat mówi¹cy, czy uda³o siê tê wiadomoœæ wys³aæ - czyli czy nazwa by³a poprawna.
+
+UÅ¼ywany, kiedy klient chce skontaktowaÄ‡ siÄ™ z innymi uÅ¼ytkownikami.
+Zanim zapisze treÅ›Ä‡ wiadomoÅ›ci, musi podaÄ‡ nazwÄ™ osoby lub grupy,
+z ktÃ³rÄ… zamierza siÄ™ skontaktowaÄ‡. Klient otrzymuje od serwera zwrotny
+komunikat mÃ³wiÄ…cy, czy udaÅ‚o siÄ™ tÄ™ wiadomoÅ›Ä‡ wysÅ‚aÄ‡ - czyli czy nazwa byÅ‚a poprawna.
 
 -------------------------------------------------------------
 
@@ -79,27 +84,36 @@ struct komunikat {
 	char text[500];
 };
 
+<table>
+	<tr><td></td><td>Odbierane przez serwer</td><td>Odbierane przez klienta</td></tr>
+	<tr><td>type</td><td>Typ komunikatu</td><td>ID odbiorcy</td></tr>
+	<tr><td>success_id</td><td>NiewaÅ¼ne</td><td>1 - sukces, 2 - niepowodzenie</td></tr>
+<tr><td>success_id</td><td>ID nadawcy</td><td>ID klienta (przy logowaniu_</td></tr>
+	
+	<tr><td>text</td><td>Nazwa grupy (kiedy jest potrzebna(</td><td>treÅ›Ä‡ komunikatu</td></tr>
+</table>
+
 		Odbierane przez serwer			Odbierane przez klienta
 type		Typ komunikatu				ID odbiorcy
-success_id	Niewa¿ne				1 - sukces, 2 - niepowodzenie
+success_id	NiewaÅ¼ne				1 - sukces, 2 - niepowodzenie
 user_id		ID nadawcy				ID klienta (przy logowaniu)
-text		Nazwa grupy (kiedy jest potrzebna)	Treœæ komunikatu
+text		Nazwa grupy (kiedy jest potrzebna)	TreÅ›Ä‡ komunikatu
 
-Wykorzystywany przez klientów do zakomunikowania serwerowi chêci
-podjêcia akcji innej ni¿ wys³anie lub odebranie wiadomoœci
-oraz przez serwer w reakcji na ka¿dy komunikat.
-Wartoœæ numer wskazuje, czy ¿¹danie uda³o siê spe³niæ, a szczegó³y opisuje tekst.
+Wykorzystywany przez klientÃ³w do zakomunikowania serwerowi chÄ™ci
+podjÄ™cia akcji innej niÅ¼ wysÅ‚anie lub odebranie wiadomoÅ›ci
+oraz przez serwer w reakcji na kaÅ¼dy komunikat.
+WartoÅ›Ä‡ numer wskazuje, czy Å¼Ä…danie udaÅ‚o siÄ™ speÅ‚niÄ‡, a szczegÃ³Å‚y opisuje tekst.
 
-###Typy ¿¹dañ (komunikatów wysy³amych przez klienta do serwera)
+### Typy Å¼Ä…daÅ„ (komunikatÃ³w wysyÅ‚amych przez klienta do serwera)
 
-Typ	Zadanie						Uwagi
+Typ	Å»Ä…danie						Uwagi
 101	Logowanie	
 102	Wylogowywanie	
-103	Podgl¹d aktywnych u¿ytkowników	
-104	Podgl¹d u¿ytkowników nale¿¹cych do grupy	Wymaga podania nazwy grupy
+103	PodglÄ…d aktywnych uÅ¼ytkownikÃ³w	
+104	PodglÄ…d uÅ¼ytkownikÃ³w naleÅ¼Ä…cych do grupy	Wymaga podania nazwy grupy
 105	Zapisanie do grupy				Wymaga podania nazwy grupy
 106	Wypisanie z grupy				Wymaga podania nazwy grupy
-107	Wyœwietlenie listy grup	
+107	WyÅ›wietlenie listy grup	
 
 
 .
